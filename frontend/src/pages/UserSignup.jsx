@@ -2,7 +2,9 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import UserContext from "../context/UserContext";
+import { UserDataContext } from "../context/UserContext";
+import { useContext } from "react";
+
 
 const UserSignup = () => {
   const [email, setEmail] = useState("");
@@ -13,23 +15,28 @@ const UserSignup = () => {
 
   const navigate = useNavigate(); // useNavigate is a hook that returns a navigate function
 
-  const { user, setUser } = React.useContext(UserContext);
-  const handleSubmit = async(e) => {
+  const { user, setUser } = useContext(UserDataContext);
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    const newUser={
-      fullName: {
-        firstName: firstName,
-        lastName: lastName,
+
+    const newUser = {
+      fullname: {
+        firstname: firstName,
+        lastname: lastName,
       },
       email: email,
       password: password,
-    }
+    };
 
-    const response=await axios.post(`${import.meta.env.VITE_BASE_URL}/user/register`,newUser);
-
-    if(response.status===200){
-      setUser(response.data);
+    const response = await axios.post(
+      `${import.meta.env.VITE_BASE_URL}/users/register`,
+      newUser
+    );
+    console.log(response);
+    if (response.status === 201) {
+      const data = response.data;
+      setUser(data.user);
+      localStorage.setItem("token", data.token);
       navigate("/home");
     }
 
@@ -38,7 +45,6 @@ const UserSignup = () => {
     setFirstName("");
     setLastName("");
   };
-
 
   return (
     <div>

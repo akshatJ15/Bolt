@@ -7,14 +7,10 @@ const BlacklistToken = require("../models/blackListToken.model");
 
 module.exports.register = async (req, res, next) => {
   const {
-    firstname,
-    lastname,
+    fullname,
     email,
     password,
-    color,
-    plate,
-    capacity,
-    vehicleType,
+    vehicle
   } = req.body;
   try {
     const error = validationResult(req);

@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const captainSchema = new mongoose.Schema({
     fullname:{
-        firstName:{
+        firstname:{
             type:String,
             required:true,
             minlength:[3, 'First name should be at least 3 characters long'],
         },
-        lastName:{
+        lastname:{
             type:String,
             required:true,
             minlength:[3, 'Last name should be at least 3 characters long'],
