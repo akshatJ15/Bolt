@@ -11,7 +11,6 @@ const UserSignup = () => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [userDate, setUserDate] = useState([]);
 
   const navigate = useNavigate(); // useNavigate is a hook that returns a navigate function
 

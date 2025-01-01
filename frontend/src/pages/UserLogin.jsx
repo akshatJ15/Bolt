@@ -7,7 +7,6 @@ import { UserDataContext } from "../context/UserContext"; // Import the UserData
 const UserLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userData, setUserData] = useState([]);
 
   const { user, setUser } = useContext(UserDataContext); // Use the useContext hook to access the UserDataContext
 
