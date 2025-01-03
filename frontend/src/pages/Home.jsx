@@ -8,6 +8,7 @@ import ConfirmedRide from "../components/ConfirmedRide";
 import { useRef, useState } from "react";
 import LookingForDriver from "../components/LookingForDriver";
 import WaitingForDriver from "../components/WaitingForDriver";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [pickup, setPickup] = useState("");
@@ -114,10 +115,12 @@ const Home = () => {
 
   return (
     <div className="h-screen relative overflow-hidden">
-      <img
-        className="w-16 absolute left-5 top-5"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Bolt_logo.png/640px-Bolt_logo.png"
-      />
+      <Link to='/'>
+        <img
+          className="w-16 absolute left-5 top-5"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Bolt_logo.png/640px-Bolt_logo.png"
+        />
+      </Link>
       <div className="h-screen w-screen">
         {/* img for temporary use */}
         <img
