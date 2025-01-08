@@ -4,8 +4,19 @@ import { MdCurrencyRupee } from "react-icons/md";
 import { GoChevronDown } from "react-icons/go";
 
 const LookingForDriver = (props) => {
+  const vehicle=props.vehicleType;
+  let fareString="";
+  if(vehicle=="car"){
+    fareString="carFare";
+  }
+  else if(vehicle=="moto"){
+    fareString="motorcycleFare";
+  }
+  else{
+    fareString="autoFare";
+  }
   return (
-    <div>
+    <div className="">
       <h5
         className="p-1 text-center w-[93%] absolute top-0"
         onClick={() => {
@@ -26,14 +37,14 @@ const LookingForDriver = (props) => {
           <div className="flex items-center gap-5 p-3 border-b-2">
             <IoLocation />
             <div>
-              <h3 className="text-lg font-medium">562/11-A</h3>
+              <h3 className="text-lg font-medium">Pickup</h3>
               <p className="text-sm -mt-1 text-gray-600">{props.pickup}</p>
             </div>
           </div>
           <div className="flex items-center gap-5 p-3 border-b-2">
             <IoLocation />
             <div>
-              <h3 className="text-lg font-medium">562/11-A</h3>
+              <h3 className="text-lg font-medium">Destination</h3>
               <p className="text-sm -mt-1 text-gray-600">{props.destination}</p>
             </div>
           </div>
@@ -41,9 +52,9 @@ const LookingForDriver = (props) => {
             <MdCurrencyRupee />
             <div>
               <h3 className="text-lg font-medium">
-                ₹{props.fare[props.vehicleType]}{" "}
+                Cash
               </h3>
-              <p className="text-sm -mt-1 text-gray-600">Cash Cash</p>
+              <p className="text-sm -mt-1 text-gray-600">₹{Math.floor(props.fare[fareString])}{" "}</p>
             </div>
           </div>
         </div>

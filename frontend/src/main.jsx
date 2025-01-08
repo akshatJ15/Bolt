@@ -7,11 +7,11 @@ import UserContext from "./context/UserContext.jsx";
 import CaptainContext from "./context/CaptainContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <UserContext>
-    <CaptainContext>
+  <CaptainContext>
+    <UserContext>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </CaptainContext>
-  </UserContext>
+    </UserContext>
+  </CaptainContext>
 );

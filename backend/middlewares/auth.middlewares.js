@@ -5,10 +5,11 @@ const jwt = require('jsonwebtoken');
 const BlacklistToken = require('../models/blackListToken.model');
 
 module.exports.authUser=async(req,res,next)=>{
+    
     try{
         const token=req.cookies.token || req.headers.authorization.split(' ')[1];
         if(!token){
-            return res.status(401).json({error:'Unauthorized'});
+            return res.status(401).json({error:'Token is Missing'});
         }
 
         const isBlacklisted=await BlacklistToken.findOne({token:token});

@@ -4,7 +4,7 @@ import { IoPerson } from "react-icons/io5";
 
 const VehiclePanel = (props) => {
   return (
-    <div>
+    <div className="pb-4">
       <h5
         className="p-1 text-center w-[93%] absolute top-0"
         onClick={() => {
@@ -38,12 +38,12 @@ const VehiclePanel = (props) => {
             Affordable, compact rides
           </p>
         </div>
-        <h2 className="text-lg font-semibold">₹{props.fare.car}</h2>
+        <h2 className="text-lg font-semibold">₹{Math.floor(props.fare.carFare)}</h2>
       </div>
       <div
         onClick={() => {
           props.setConfirmRidePanel(true);
-          props.selectVehicle("moto");
+          props.selectVehicle("motorcycle");
         }}
         className="flex border-2 active:border-black mb-2 rounded-xl w-full p-3  items-center justify-between"
       >
@@ -64,7 +64,7 @@ const VehiclePanel = (props) => {
             Affordable motorcycle rides
           </p>
         </div>
-        <h2 className="text-lg font-semibold">₹{props.fare.moto}</h2>
+        <h2 className="text-lg font-semibold">₹{Math.floor(props.fare.motorcycleFare)}</h2>
       </div>
       <div
         onClick={() => {
@@ -90,7 +90,7 @@ const VehiclePanel = (props) => {
             Affordable Auto rides
           </p>
         </div>
-        <h2 className="text-lg font-semibold">₹{props.fare.auto}</h2>
+        <h2 className="text-lg font-semibold">₹{Math.floor(props.fare.autoFare)}</h2>
       </div>
     </div>
   );

@@ -39,12 +39,12 @@ module.exports.getDistanceTime = async (origin, destination) => {
     }
   } catch (err) {
     console.log(err);
+    throw err; // Propagate the error
   }
 };
 
 module.exports.getSuggestions = async (input) => {
   try {
-    const { input } = req.query;
     if (!input) {
       throw new Error("query is required");
     }

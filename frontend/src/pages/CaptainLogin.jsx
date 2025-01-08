@@ -10,6 +10,7 @@ const CaptainLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
   const { captain, setCaptain } = useContext(CaptainDataContext);
   const navigate=useNavigate();
 
@@ -30,7 +31,7 @@ const CaptainLogin = () => {
     if(response.status===200){
       const data = response.data
       setCaptain(data.captain)
-      localStorage.setItem('token', data.token)
+      localStorage.setItem('token', data.token);
       navigate('/captain-home')
     }
 
@@ -38,6 +39,9 @@ const CaptainLogin = () => {
     setEmail("");
     setPassword("");
   };
+
+
+
   return (
     <div className="p-7 h-screen flex flex-col justify-between">
       <Link to='/'>

@@ -8,6 +8,7 @@ const userRoutes=require('./routes/user.routes');
 const cookieParser=require('cookie-parser');
 const captainRoutes=require('./routes/captain.routes');
 const mapRoutes=require('./routes/maps.routes');
+const rideRoutes=require('./routes/ride.routes');
 
 app.use(cors());
 app.use(express.json());
@@ -24,6 +25,7 @@ app.get('/',(req,res)=>{
 app.use('/users',userRoutes);
 app.use('/captains',captainRoutes);
 app.use('/maps',mapRoutes);
+app.use('/rides',rideRoutes);
 
 app.listen(3000,()=>{
     console.log('Server is running on port 3000');
