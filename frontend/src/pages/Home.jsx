@@ -10,6 +10,10 @@ import LookingForDriver from "../components/LookingForDriver";
 import WaitingForDriver from "../components/WaitingForDriver";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { SocketContext } from "../context/SocketContext";
+import { useEffect } from "react";
+import { useContext } from "react";
+import { UserDataContext } from "../context/UserContext";
 
 const Home = () => {
   const [pickup, setPickup] = useState("");
@@ -31,6 +35,13 @@ const Home = () => {
   const [fare, setFare] = useState({});
   const [vehicleType, setVehicleType] = useState(null);
   const [ride, setRide] = useState(null);
+
+  const { socket } = useContext(SocketContext);
+  const { user } = useContext(UserDataContext);
+
+  useEffect(() => {
+    socket.emit("join", { userType: "user", userId: user._id });
+  }, [user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
