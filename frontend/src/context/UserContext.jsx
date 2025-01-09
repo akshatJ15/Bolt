@@ -1,26 +1,25 @@
-import React, { createContext, useState, useContext } from "react";
-import { SocketContext } from "./SocketContext.jsx";
+import React, { createContext, useState } from 'react'
 
-export const UserDataContext = createContext();
+export const UserDataContext = createContext()
+
 
 const UserContext = ({ children }) => {
-  const { sendMessage, receiveMessage } = useContext(SocketContext);
 
-  const [user, setUser] = useState({
-    email: "",
-    fullName: {
-      firstName: "",
-      lastName: "",
-    },
-  });
+    const [ user, setUser ] = useState({
+        email: '',
+        fullName: {
+            firstName: '',
+            lastName: ''
+        }
+    })
 
-  return (
-    <div>
-      <UserDataContext.Provider value={{ user, setUser, sendMessage, receiveMessage }}>
-        {children}
-      </UserDataContext.Provider>
-    </div>
-  );
-};
+    return (
+        <div>
+            <UserDataContext.Provider value={{ user, setUser }}>
+                {children}
+            </UserDataContext.Provider>
+        </div>
+    )
+}
 
-export default UserContext;
+export default UserContext

@@ -84,6 +84,8 @@ Requires a valid JWT token in the Authorization header:
     - `lastname` (string): User's last name (minimum 3 characters).   
   - `email` (string): User's email address (must be a valid email).
 
+
+
 ## `/users/logout` Endpoint
 
 ### Description
@@ -229,8 +231,6 @@ Requires a valid JWT token in the Authorization header:
   - `fullname` (object).
     - `firstname` (string): Captain's first name (minimum 3 characters).
     - `lastname` (string): Captain's last name (minimum 3 characters).   
-  - `email` (string): Captain's email address (must be a valid email).
-  - `vehicle` (object):
   - `email` (string): Captain's email address (must be a valid email).
   - `vehicle` (object):
     - `color` (string): Vehicle color.
